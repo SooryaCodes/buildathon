@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 
 import MapboxMap from '../components/Map';
 import CountryList from '../components/CountryList';
+import CountryChart from '../components/CountryChart';
 
 export default function CrisisDashboard() {
     useEffect(() => {
@@ -218,6 +219,7 @@ export default function CrisisDashboard() {
                     <MapboxMap />
                     <div className='col-span-3 bg-white p-2 rounded-xl'>
                         <CountryList/>
+                        <CountryChart/>
                     </div>
                 </div>
             </div>

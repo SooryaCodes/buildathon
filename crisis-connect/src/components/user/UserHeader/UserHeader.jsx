@@ -24,7 +24,10 @@ export default function UserHeader() {
                             fill="white"
                         />
                     </svg>
-                    {/* <img src="/CRISIS_CONNECT_LOGO.png" className=' w-auto h-40' alt="" /> */}
+                    {/* <div className='max-h-20 overflow-hidden grid place-items-start '>
+<img src="/CRISIS_CONNECT_LOGO.png" className=' scale-150 transform w-auto h-60' alt="" />
+
+</div> */}
                 </a>
 
 
@@ -71,7 +74,7 @@ export default function UserHeader() {
                         </svg>
                         <span className="sr-only">Toggle</span>
                     </button>
-                    <Link to=""
+                    <Link to="https://buymeacoffee.com/sooryakriz"
                         type="button"
                         className="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-teal-500 text-teal-500 hover:border-teal-400 hover:text-teal-400 focus:outline-none focus:border-teal-400 focus:text-teal-400 disabled:opacity-50 disabled:pointer-events-none"
                     >

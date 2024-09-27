@@ -5,6 +5,8 @@ import UserLayout from './components/user/UserLayout';
 import AdminDashboard from './components/admin/AdminDashboard';
 import Map from './components/Map';
 import Mapbox from 'react-map-gl/dist/esm/mapbox/mapbox';
+import CrisisDashboard from './pages/CrisisDashboard';
+import Home from './pages/Home';
 
 function App() {
 
@@ -18,8 +20,9 @@ function App() {
         </Route>
 
         {/* User Routes */}
-        <Route path="/" element={<UserLayout />}>
-          <Route path="profile" element={<h2>User Profile</h2>} />
+        <Route path="/" element={<UserLayout></UserLayout>}>
+          <Route index element={<Home />} />
+          <Route path="crisis-view" element={<CrisisDashboard />} />
         </Route>
 
         {/* Default Routes */}

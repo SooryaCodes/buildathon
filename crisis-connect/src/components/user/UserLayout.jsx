@@ -3,13 +3,14 @@ import { Outlet, Link } from 'react-router-dom';
 import UserHeader from './UserHeader/UserHeader';
 import CrisisDashboard from '../../pages/CrisisDashboard';
 
-const UserLayout = () => {
+const UserLayout = ({children}) => {
   return (
     <div>
 
         <UserHeader />
-        <CrisisDashboard />
+        
         {/* Render the user route here */}
+        {/* {children} */}
 
       <Outlet />
     </div>

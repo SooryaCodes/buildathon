@@ -1,15 +1,18 @@
 import React, { useState, useRef, useContext, useEffect } from "react";
 import Map, { Layer, Marker, NavigationControl, Source } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
-import { infectedCoordinates } from "../data/coordinates";
+import { infectedCoordinates, infectedZoneCoordinates } from "../data/coordinates";
 import * as turf from "@turf/turf"; // Importing turf.js
 import { UserContext } from "../context/UserContext";
+import DashButton from "./DashButton";
+import CovidData from "./CovidData";
+import CountryData from "./CountryData";
 
 // Ensure you replace this with your own Mapbox access token
 const MAPBOX_TOKEN = "your_mapbox_access_token";
 
 export default function MapboxMap() {
-    const { selectedCountry, setSelectedCountry,flyToLocation,mapRef } = useContext(UserContext)
+    const { selectedCountry, setSelectedCountry, flyToLocation, mapRef } = useContext(UserContext)
 
     // Function to create a circular zone using turf.js
     const createCircleZone = (center, radiusInKm) => {
@@ -26,7 +29,7 @@ export default function MapboxMap() {
 
     // Generate radius zones for each infected point (e.g., 5km radius)
     const radiusZones = infectedCoordinates.map(({ coordinates }) =>
-        createCircleZone([coordinates[0], coordinates[1]], 5) // 5km radius
+        createCircleZone([coordinates[0], coordinates[1]], 250) // 5km radius
     );
 
     // Combine the zones into a single GeoJSON FeatureCollection
@@ -36,10 +39,10 @@ export default function MapboxMap() {
 
 
     useEffect(() => {
-        console.log( selectedCountry);
+        console.log(selectedCountry);
 
-        if (selectedCountry!=null) {
-        console.log(selectedCountry.latlng[0], selectedCountry.latlng[1], "dd");
+        if (selectedCountry != null) {
+            console.log(selectedCountry.latlng[0], selectedCountry.latlng[1], "dd");
 
             flyToLocation(selectedCountry.latlng[0], selectedCountry.latlng[1])
         }
@@ -82,7 +85,7 @@ export default function MapboxMap() {
                     <NavigationControl position="top-left" />
 
                     {/* Markers for infected locations */}
-                    {infectedCoordinates.map(({ coordinates }, i) => (
+                    {infectedZoneCoordinates.map(({ coordinates }, i) => (
                         <Marker
                             key={i}
                             latitude={coordinates[1]} // Mapbox uses lat, lng instead of lng, lat
@@ -95,25 +98,13 @@ export default function MapboxMap() {
             </div>
 
             {/* Fly to specific location buttons */}
-            <div className="mt-4">
-                <button
-                    className="mr-2 bg-blue-500 text-white px-3 py-2 rounded-lg"
-                    onClick={() => flyToLocation(51.5074, -0.1278, 12)} // Fly to London
-                >
-                    Fly to London
-                </button>
-                <button
-                    className="mr-2 bg-green-500 text-white px-3 py-2 rounded-lg"
-                    onClick={() => flyToLocation(40.7128, -74.006, 12)} // Fly to New York
-                >
-                    Fly to New York
-                </button>
-                <button
-                    className="bg-red-500 text-white px-3 py-2 rounded-lg"
-                    onClick={() => flyToLocation(35.6762, 139.6503, 12)} // Fly to Tokyo
-                >
-                    Fly to Tokyo
-                </button>
+            <div className="mt-4   w-full ">
+                <CovidData/>
+                <CountryData/>
+                <DashButton  />
+                {/* <DashButton text="Symptoms" icon={"ri-error-warning-line"} />
+                <DashButton text="Safety Measures" icon={"ri-checkbox-circle-line"} /> */}
+
             </div>
         </div>
     );
