@@ -1,63 +1,136 @@
-import React, { useState } from "react"
-import { ComposableMap, Geographies, Geography, ZoomableGroup, Marker } from "react-simple-maps"
-import { infectedCoordinates } from "../data/coordinates";
+import React, { useState } from "react";
+import Map, { Layer, Marker, NavigationControl, Source } from "react-map-gl";
+import "mapbox-gl/dist/mapbox-gl.css";
+import { infectedCoordinates, infectedZoneCoordinates } from "../data/coordinates";
+import * as turf from "@turf/turf"; // Importing turf.js
+
+// Ensure you replace this with your own Mapbox access token
+const MAPBOX_TOKEN = "your_mapbox_access_token";
 
 
 
-export default function Map() {
-    const [zoom, setZoom] = useState(1);  // Default zoom level
+export default function MapboxMap() {
+    // Function to create a circular zone using turf.js
+    const createCircleZone = (center, radiusInKm) => {
+        const radiusInMeters = radiusInKm * 1000;
+        const options = { steps: 120, units: "meters" }; // Higher steps make the circle smoother
+        return turf.circle(center, radiusInMeters, options);
+    };
 
+    const [viewport, setViewport] = useState({
+        latitude: 20, // Default center latitude
+        longitude: 78, // Default center longitude
+        zoom: 1, // Default zoom level
+    });
+
+    // Generate radius zones for each infected point (e.g., 5km radius)
+    const radiusZones = infectedZoneCoordinates.map(({ coordinates }) => {
+
+
+        createCircleZone([coordinates[0], coordinates[1]], 5) // 5km radius
+    }
+    );
+
+
+    // Combine the zones into a single GeoJSON FeatureCollection
+    const radiusZonesGeoJSON = turf.featureCollection(radiusZones);
+
+
+    const geojson = {
+        type: "FeatureCollection",
+        features: [
+            {
+                type: "Feature",
+                geometry: {
+                    type: "Polygon",
+                    coordinates: [
+                        [
+                            [-74.1, 40.7],
+                            [-74.1, 40.8],
+                            [-73.9, 40.8],
+                            [-73.9, 40.7],
+                            [-74.1, 40.7],
+                        ],
+                    ],
+                },
+                properties: {
+                    name: "Zone 1",
+                },
+            },
+            {
+                type: "Feature",
+                geometry: {
+                    type: "Polygon",
+                    coordinates: [
+                        [
+                            [-74.0, 40.6],
+                            [-74.0, 40.7],
+                            [-73.8, 40.7],
+                            [-73.8, 40.6],
+                            [-74.0, 40.6],
+                        ],
+                    ],
+                },
+                properties: {
+                    name: "Zone 2",
+                },
+            },
+        ],
+    };
 
 
     return (
         <div className="p-6 col-span-5 bg-white rounded-xl shadow-sm">
-            {/* Zoom Controls */}
-
-
+            {/* Mapbox map container */}
             <div className="bg-blue-100 rounded-xl">
-                <ComposableMap>
-                    {/* ZoomableGroup enables zooming functionality */}
-                    <ZoomableGroup zoom={zoom}>
-                        <Geographies geography="/features.json">
-                            {({ geographies }) =>
-                                geographies.map((geo) => (
-                                    <Geography key={geo.rsmKey} geography={geo} />
-                                ))
-                            }
-                        </Geographies>
+                <Map
+                    initialViewState={viewport}
+                    mapStyle="mapbox://styles/mapbox/streets-v12"
+                    style={{ width: "100%", height: "400px" }}
+                    mapboxAccessToken={"pk.eyJ1Ijoic29vcnlhLWtyaXoiLCJhIjoiY20xa29vNnYyMDBjZzJycHUyamp2Y2Q0biJ9.l5wejacWfpUBAuv3sQ9TLw"}
+                    onMove={(evt) => setViewport(evt.viewState)}
 
-
-                        {/* Markers for infected locations */}
-                        {infectedCoordinates.map(({ coordinates }, i) => {
-                            return (
-                                <Marker key={i} coordinates={coordinates}>
-                                    <circle r={4} fill={"red"} stroke="" />
-                                    {/* <text
-                                    textAnchor="middle"
-                                    y={-size - 5}  // Adjust text position based on marker size
-                                    style={{ fontFamily: "system-ui", fill: "#5D5A6D", fontSize: 10 }}
-                                >
-                                </text>  */}
-                                </Marker>
-                            );
-                        })}
-                    </ZoomableGroup>
-                </ComposableMap>
-            </div>
-            <div className="flex space-x-4 mt-4">
-
-                <button
-                    onClick={() => setZoom(zoom / 1.2)}
-                    className="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-gray-500 text-white hover:bg-gray-600 focus:outline-none focus:bg-gray-600 disabled:opacity-50 disabled:pointer-events-none"
                 >
-                    <i className="ri-zoom-out-line"></i>        </button><button
-                        onClick={() => setZoom(zoom * 1.2)}
-                        className="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-gray-500 text-white hover:bg-gray-600 focus:outline-none focus:bg-gray-600 disabled:opacity-50 disabled:pointer-events-none"
-                    >
-                    <i className="ri-zoom-in-line"></i>
-                </button>
 
+                    {/* Source for rendering the circular radius zones */}
+                    <Source id="radius-zones" type="geojson" data={radiusZonesGeoJSON}>
+                        {/* Layer for the radius zones with transparency */}
+                        <Layer
+                            id="radius-zone-layer"
+                            type="fill"
+                            paint={{
+                                "fill-color": "#FF0000",
+                                "fill-opacity": 0.3,
+                            }}
+                        />
+                        {/* Outline for the circular radius */}
+                        <Layer
+                            id="radius-zone-outline"
+                            type="line"
+                            paint={{
+                                "line-color": "#FF0000",
+                                "line-width": 1,
+                            }}
+                        />
+                    </Source>
+
+                    {/* Navigation controls for zooming */}
+                    <NavigationControl position="top-left" />
+
+                    {/* Markers for infected locations */}
+                    {infectedCoordinates.map(({ coordinates }, i) => (
+                        <Marker
+                            key={i}
+                            latitude={coordinates[1]} // Mapbox uses lat, lng instead of lng, lat
+                            longitude={coordinates[0]}
+                        >
+                            <div className="bg-red-500 w-1 h-1 rounded-full" />
+                        </Marker>
+                    ))}
+                </Map>
             </div>
+
+
         </div>
-    )
+    );
 }

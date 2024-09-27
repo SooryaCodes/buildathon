@@ -11,8 +11,11 @@
   },
   "dependencies": {
     "@preline/theme-switch": "^2.5.0",
+    "@turf/turf": "^7.1.0",
     "apexcharts": "^3.53.0",
+    "d3-fetch": "^3.0.1",
     "d3-geo": "^3.1.1",
+    "d3-scale": "^4.0.2",
     "mapbox-gl": "^3.6.0",
     "preline": "^2.5.0",
     "react": "^18.3.1",

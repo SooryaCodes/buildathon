@@ -51,3 +51,15 @@ export const infectedCoordinates =  [
     { coordinates: [114.1095, 22.3964] }       // Hong Kong
   ]
   
+  export const infectedZoneCoordinates = [
+    { coordinates: [77.1025, 28.6139] },  // New Delhi, India
+    { coordinates: [72.8777, 19.0760] },  // Mumbai, India
+    { coordinates: [88.3639, 22.5726] },  // Kolkata, India
+    { coordinates: [78.4867, 17.3850] },  // Hyderabad, India
+    { coordinates: [77.5946, 12.9716] },  // Bengaluru, India
+    { coordinates: [77.216721, 28.635308] },  // Noida, India
+    { coordinates: [72.8777, 19.2183] },  // Thane, India
+    { coordinates: [85.824, 20.2961] },  // Bhubaneswar, India
+    { coordinates: [77.6706, 13.0208] },  // Tirupati, India
+    { coordinates: [88.0242, 22.5726] },  // Howrah, India
+];

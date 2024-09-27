@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
-import Map from '../components/Map'
+
+import MapboxMap from '../components/Map';
 
 export default function CrisisDashboard() {
     useEffect(() => {
@@ -84,7 +85,7 @@ export default function CrisisDashboard() {
                     options: {
                         chart: { height: 300 },
                         labels: {
-                            style: { colors: '#9ca3af', fontSize: '11px', fontFamily: 'Inter, ui-sans-serif', fontWeight: 400 },
+                            style: { colors: 'red', fontSize: '11px', fontFamily: 'Inter, ui-sans-serif', fontWeight: 400 },
                             offsetX: -2,
                             formatter: (title) => title.slice(0, 3)
                         },
@@ -93,7 +94,7 @@ export default function CrisisDashboard() {
                                 align: 'left',
                                 minWidth: 0,
                                 maxWidth: 140,
-                                style: { colors: '#9ca3af', fontSize: '11px', fontFamily: 'Inter, ui-sans-serif', fontWeight: 400 },
+                                style: { colors: 'red', fontSize: '11px', fontFamily: 'Inter, ui-sans-serif', fontWeight: 400 },
                                 formatter: (value) => (value >= 1000 ? `${value / 1000}k` : value)
                             }
                         }
@@ -101,19 +102,20 @@ export default function CrisisDashboard() {
                 }]
             }),
             {
-                colors: ['#2563eb', '#9333ea'],
-                fill: { gradient: { stops: [0, 90, 100] } },
-                xaxis: { labels: { style: { colors: '#9ca3af' } } },
-                yaxis: { labels: { style: { colors: '#9ca3af' } } },
-                grid: { borderColor: '#e5e7eb' }
+                colors: ['red', 'red', 'red'],
+                fill: { gradient: { stops: [0, 60, 100] } },
+                xaxis: { labels: { style: { colors: 'red' } } },
+                yaxis: { labels: { style: { colors: 'red' } } },
+                grid: { borderColor: 'red' }
             },
             {
-                colors: ['#3b82f6', '#a855f7'],
-                fill: { gradient: { stops: [100, 90, 0] } },
-                xaxis: { labels: { style: { colors: '#a3a3a3' } } },
-                yaxis: { labels: { style: { colors: '#a3a3a3' } } },
-                grid: { borderColor: '#404040' }
+                colors: ['red', 'red', 'red'],
+                fill: { gradient: { stops: [100, 60, 0] } },
+                xaxis: { labels: { style: { colors: 'red' } } },
+                yaxis: { labels: { style: { colors: 'red' } } },
+                grid: { borderColor: 'red' }
             }
+            
         );
     }, []);
 
@@ -202,7 +204,7 @@ export default function CrisisDashboard() {
                                 </div>
                                 {/* End Legend   Indicator */}
                                 <div className=' p-2'>
-                                    <div id="hs-multiple-area-charts" />
+                                    <div id="hs-multiple-area-charts" className='font-sans' />
 
                                 </div>
                             </>
@@ -212,7 +214,7 @@ export default function CrisisDashboard() {
 
                         </div>
                     </div>
-                    <Map />
+                    <MapboxMap />
                     <div className='col-span-3'></div>
                 </div>
             </div>
