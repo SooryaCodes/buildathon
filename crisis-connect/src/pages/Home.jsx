@@ -10,6 +10,7 @@ export default function Home() {
                     <CrisisCard />
                 </div>
             </div>
+            <hr  className='mt-10'/>
             <div className='mt-10'>
                 <h4 className='text-2xl font-bold text-blue-950 mb-3' ><i className="ri-earth-line"></i> Global Crisises </h4>
                 <div>

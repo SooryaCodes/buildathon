@@ -7,6 +7,7 @@ import Map from './components/Map';
 import Mapbox from 'react-map-gl/dist/esm/mapbox/mapbox';
 import CrisisDashboard from './pages/CrisisDashboard';
 import Home from './pages/Home';
+import Login from './pages/Login';
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
         <Route path="/" element={<UserLayout></UserLayout>}>
           <Route index element={<Home />} />
           <Route path="crisis-view" element={<CrisisDashboard />} />
+          <Route path="login" element={<Login />} />
         </Route>
 
         {/* Default Routes */}
