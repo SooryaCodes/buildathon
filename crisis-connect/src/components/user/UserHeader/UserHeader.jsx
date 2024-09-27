@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 export default function UserHeader() {
     return (
-        <header className="flex border-b fixed top-0 shadow-sm  flex-wrap sm:justify-start sm:flex-nowrap w-full bg-white text-sm py-3 dark:bg-neutral-800">
+        <header className="flex z-[999] border-b fixed top-0 shadow-sm  flex-wrap sm:justify-start sm:flex-nowrap w-full bg-white text-sm py-3 dark:bg-neutral-800">
             <nav className="max-w-[85rem] w-full mx-auto px-4 flex flex-wrap basis-full items-center justify-between">
 
                 <a

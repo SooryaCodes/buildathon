@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import AdminLayout from './components/admin/AdminLayout';
 import UserLayout from './components/user/UserLayout';
 import AdminDashboard from './components/admin/AdminDashboard';
+import Map from './components/Map';
 
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
           </Route>
 
           {/* Default Routes */}
-          <Route path="/" element={<Map/>} />
+          <Route path="/" element={<Map  />} />
         </Routes>
     </div>
   )
