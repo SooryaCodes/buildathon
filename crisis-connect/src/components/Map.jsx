@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Map, { Layer, Marker, NavigationControl, Source } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
-import { infectedCoordinates, infectedZoneCoordinates } from "../data/coordinates";
+import { infectedCoordinates } from "../data/coordinates";
 import * as turf from "@turf/turf"; // Importing turf.js
 
 // Ensure you replace this with your own Mapbox access token
@@ -13,7 +13,7 @@ export default function MapboxMap() {
     // Function to create a circular zone using turf.js
     const createCircleZone = (center, radiusInKm) => {
         const radiusInMeters = radiusInKm * 1000;
-        const options = { steps: 120, units: "meters" }; // Higher steps make the circle smoother
+        const options = { steps: 64, units: "meters" }; // Higher steps make the circle smoother
         return turf.circle(center, radiusInMeters, options);
     };
 
@@ -24,59 +24,12 @@ export default function MapboxMap() {
     });
 
     // Generate radius zones for each infected point (e.g., 5km radius)
-    const radiusZones = infectedZoneCoordinates.map(({ coordinates }) => {
-
-
-        createCircleZone([coordinates[0], coordinates[1]], 5) // 5km radius
-    }
+    const radiusZones = infectedCoordinates.map(({ coordinates }) =>
+        createCircleZone([coordinates[0], coordinates[1]], 100) // 5km radius
     );
-
 
     // Combine the zones into a single GeoJSON FeatureCollection
     const radiusZonesGeoJSON = turf.featureCollection(radiusZones);
-
-
-    const geojson = {
-        type: "FeatureCollection",
-        features: [
-            {
-                type: "Feature",
-                geometry: {
-                    type: "Polygon",
-                    coordinates: [
-                        [
-                            [-74.1, 40.7],
-                            [-74.1, 40.8],
-                            [-73.9, 40.8],
-                            [-73.9, 40.7],
-                            [-74.1, 40.7],
-                        ],
-                    ],
-                },
-                properties: {
-                    name: "Zone 1",
-                },
-            },
-            {
-                type: "Feature",
-                geometry: {
-                    type: "Polygon",
-                    coordinates: [
-                        [
-                            [-74.0, 40.6],
-                            [-74.0, 40.7],
-                            [-73.8, 40.7],
-                            [-73.8, 40.6],
-                            [-74.0, 40.6],
-                        ],
-                    ],
-                },
-                properties: {
-                    name: "Zone 2",
-                },
-            },
-        ],
-    };
 
 
     return (
@@ -92,6 +45,7 @@ export default function MapboxMap() {
 
                 >
 
+
                     {/* Source for rendering the circular radius zones */}
                     <Source id="radius-zones" type="geojson" data={radiusZonesGeoJSON}>
                         {/* Layer for the radius zones with transparency */}
@@ -99,8 +53,8 @@ export default function MapboxMap() {
                             id="radius-zone-layer"
                             type="fill"
                             paint={{
-                                "fill-color": "#FF0000",
-                                "fill-opacity": 0.3,
+                                "fill-color": "#FF0000", // Red color for the zone
+                                "fill-opacity": 0.3, // Transparent
                             }}
                         />
                         {/* Outline for the circular radius */}
@@ -108,7 +62,7 @@ export default function MapboxMap() {
                             id="radius-zone-outline"
                             type="line"
                             paint={{
-                                "line-color": "#FF0000",
+                                "line-color": "#FF0000", // Red outline
                                 "line-width": 1,
                             }}
                         />

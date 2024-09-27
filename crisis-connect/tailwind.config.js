@@ -9,7 +9,11 @@ export default {
 
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily:{
+        'Sora':['Sora','sans-serif']
+      }
+    },
   },
   plugins: [
     require('preline/plugin'),

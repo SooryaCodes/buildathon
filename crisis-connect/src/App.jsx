@@ -10,7 +10,7 @@ import Mapbox from 'react-map-gl/dist/esm/mapbox/mapbox';
 function App() {
 
   return (
-    <div>
+    <div className='font-Sora'>
       <Routes>
         {/* Admin Routes */}
         <Route path="/admin" element={<AdminLayout />}>

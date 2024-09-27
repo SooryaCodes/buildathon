@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 
 import MapboxMap from '../components/Map';
+import CountryList from '../components/CountryList';
 
 export default function CrisisDashboard() {
     useEffect(() => {
@@ -215,7 +216,9 @@ export default function CrisisDashboard() {
                         </div>
                     </div>
                     <MapboxMap />
-                    <div className='col-span-3'></div>
+                    <div className='col-span-3 bg-white p-2 rounded-xl'>
+                        <CountryList/>
+                    </div>
                 </div>
             </div>
         </div>
