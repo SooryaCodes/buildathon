@@ -6,9 +6,11 @@ import CrisisDashboard from '../../pages/CrisisDashboard';
 const UserLayout = () => {
   return (
     <div>
-      <UserHeader />
-      <CrisisDashboard/>
-      {/* Render the user route here */}
+
+        <UserHeader />
+        <CrisisDashboard />
+        {/* Render the user route here */}
+
       <Outlet />
     </div>
   );

@@ -6,7 +6,6 @@ import AdminDashboard from './components/admin/AdminDashboard';
 import Map from './components/Map';
 import Mapbox from 'react-map-gl/dist/esm/mapbox/mapbox';
 
-
 function App() {
 
   return (

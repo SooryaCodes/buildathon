@@ -1,15 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useContext, useEffect } from "react";
 import Map, { Layer, Marker, NavigationControl, Source } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { infectedCoordinates } from "../data/coordinates";
 import * as turf from "@turf/turf"; // Importing turf.js
+import { UserContext } from "../context/UserContext";
 
 // Ensure you replace this with your own Mapbox access token
 const MAPBOX_TOKEN = "your_mapbox_access_token";
 
-
-
 export default function MapboxMap() {
+    const { selectedCountry, setSelectedCountry,flyToLocation,mapRef } = useContext(UserContext)
+
     // Function to create a circular zone using turf.js
     const createCircleZone = (center, radiusInKm) => {
         const radiusInMeters = radiusInKm * 1000;
@@ -25,27 +26,36 @@ export default function MapboxMap() {
 
     // Generate radius zones for each infected point (e.g., 5km radius)
     const radiusZones = infectedCoordinates.map(({ coordinates }) =>
-        createCircleZone([coordinates[0], coordinates[1]], 100) // 5km radius
+        createCircleZone([coordinates[0], coordinates[1]], 5) // 5km radius
     );
 
     // Combine the zones into a single GeoJSON FeatureCollection
     const radiusZonesGeoJSON = turf.featureCollection(radiusZones);
 
+    // Function to fly to specific coordinates and zoom level
 
+
+    useEffect(() => {
+        console.log( selectedCountry);
+
+        if (selectedCountry!=null) {
+        console.log(selectedCountry.latlng[0], selectedCountry.latlng[1], "dd");
+
+            flyToLocation(selectedCountry.latlng[0], selectedCountry.latlng[1])
+        }
+    }, [])
     return (
         <div className="p-6 col-span-5 bg-white rounded-xl shadow-sm">
             {/* Mapbox map container */}
             <div className="bg-blue-100 rounded-xl">
                 <Map
+                    ref={mapRef}
                     initialViewState={viewport}
                     mapStyle="mapbox://styles/mapbox/streets-v12"
                     style={{ width: "100%", height: "400px" }}
                     mapboxAccessToken={"pk.eyJ1Ijoic29vcnlhLWtyaXoiLCJhIjoiY20xa29vNnYyMDBjZzJycHUyamp2Y2Q0biJ9.l5wejacWfpUBAuv3sQ9TLw"}
                     onMove={(evt) => setViewport(evt.viewState)}
-
                 >
-
-
                     {/* Source for rendering the circular radius zones */}
                     <Source id="radius-zones" type="geojson" data={radiusZonesGeoJSON}>
                         {/* Layer for the radius zones with transparency */}
@@ -84,7 +94,27 @@ export default function MapboxMap() {
                 </Map>
             </div>
 
-
+            {/* Fly to specific location buttons */}
+            <div className="mt-4">
+                <button
+                    className="mr-2 bg-blue-500 text-white px-3 py-2 rounded-lg"
+                    onClick={() => flyToLocation(51.5074, -0.1278, 12)} // Fly to London
+                >
+                    Fly to London
+                </button>
+                <button
+                    className="mr-2 bg-green-500 text-white px-3 py-2 rounded-lg"
+                    onClick={() => flyToLocation(40.7128, -74.006, 12)} // Fly to New York
+                >
+                    Fly to New York
+                </button>
+                <button
+                    className="bg-red-500 text-white px-3 py-2 rounded-lg"
+                    onClick={() => flyToLocation(35.6762, 139.6503, 12)} // Fly to Tokyo
+                >
+                    Fly to Tokyo
+                </button>
+            </div>
         </div>
     );
 }
