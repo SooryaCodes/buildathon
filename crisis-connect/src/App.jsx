@@ -8,6 +8,7 @@ import Mapbox from 'react-map-gl/dist/esm/mapbox/mapbox';
 import CrisisDashboard from './pages/CrisisDashboard';
 import Home from './pages/Home';
 import Login from './pages/Login';
+import Signup from './pages/Signup';
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="crisis-view" element={<CrisisDashboard />} />
           <Route path="login" element={<Login />} />
+          <Route path="signup" element={<Signup />} />
         </Route>
 
         {/* Default Routes */}
