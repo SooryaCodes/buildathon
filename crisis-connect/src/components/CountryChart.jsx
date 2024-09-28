@@ -24,8 +24,8 @@ export default function CountryChart() {
                     },
                 },
             },
-            series: [47, 23, 30],
-            labels: ['Tailwind CSS', 'Preline UI', 'Others'],
+            series: [472343, 233234, 302332],
+            labels: ['Deaths', 'Vaccinated', 'Infected'],
             legend: {
                 show: false,
             },
@@ -79,19 +79,19 @@ export default function CountryChart() {
                 <div className="inline-flex items-center">
                     <span className="size-2.5 inline-block bg-red-600 rounded-sm me-2" />
                     <span className="text-[13px] text-gray-600 dark:text-neutral-400">
-                        Income
+                        Deaths
                     </span>
                 </div>
                 <div className="inline-flex items-center">
                     <span className="size-2.5 inline-block bg-yellow-400 rounded-sm me-2" />
                     <span className="text-[13px] text-gray-600 dark:text-neutral-400">
-                        Outcome
+                        Infected
                     </span>
                 </div>
                 <div className="inline-flex items-center">
                     <span className="size-2.5 inline-block bg-green-300 rounded-sm me-2 dark:bg-neutral-700" />
                     <span className="text-[13px] text-gray-600 dark:text-neutral-400">
-                        Others
+                        Vaccinated
                     </span>
                 </div>
             </div>

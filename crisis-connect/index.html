@@ -5,19 +5,52 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vite + React</title>
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
-  <link rel="stylesheet" href="./node_modules/apexcharts/dist/apexcharts.css">
+  <title>Real-Time Crisis Analytics and Reports</title>
 
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Stay informed with real-time crisis analytics, reports, and alerts to navigate through health emergencies effectively." />
+  <meta name="keywords" content="crisis analytics, health reports, real-time alerts, epidemic monitoring, public health, data analysis" />
+  <meta name="author" content="Your Name or Organization" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph Tags for Social Media -->
+  <meta property="og:title" content="Real-Time Crisis Analytics and Reports" />
+  <meta property="og:description" content="Stay informed with real-time crisis analytics, reports, and alerts to navigate through health emergencies effectively." />
+  <meta property="og:image" content="URL-to-your-image" /> <!-- Replace with a relevant image URL -->
+  <meta property="og:url" content="https://yourwebsite.com" /> <!-- Replace with your actual website URL -->
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Card Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Real-Time Crisis Analytics and Reports" />
+  <meta name="twitter:description" content="Stay informed with real-time crisis analytics, reports, and alerts to navigate through health emergencies effectively." />
+  <meta name="twitter:image" content="URL-to-your-image" /> <!-- Replace with a relevant image URL -->
+
+  <!-- Stylesheets -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./public/apexcharts.css">
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Real-Time Crisis Analytics and Reports",
+      "url": "https://yourwebsite.com",
+      "description": "Stay informed with real-time crisis analytics, reports, and alerts to navigate through health emergencies effectively.",
+      "author": {
+        "@type": "Organization",
+        "name": "Your Organization"
+      }
+    }
+  </script>
 </head>
 
 <body>
   <div id="root"></div>
-  <script src="/apexcharts.min.js"></script>
-  <script src="/helper-apexcharts.js"></script>
-
+  <script src="./public/ApexCharts.js"></script>
+  <script src="./public/helper-apexcharts.js"></script>
   <script type="module" src="/src/main.jsx"></script>
-
 </body>
 
 </html>
