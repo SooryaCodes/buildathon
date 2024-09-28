@@ -9,6 +9,7 @@ import CrisisDashboard from './pages/CrisisDashboard';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import NewReport from './pages/NewReport';
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
           <Route path="crisis-view" element={<CrisisDashboard />} />
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<Signup />} />
+          <Route path="new-report" element={<NewReport />} />
         </Route>
 
         {/* Default Routes */}

@@ -61,7 +61,7 @@ export default function UserHeader() {
                         </svg>
                         <span className="sr-only">Toggle</span>
                     </button>
-                    <Link to={""} type="button" className=" py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-teal-500 text-white hover:bg-teal-600 focus:outline-none focus:bg-teal-600 disabled:opacity-50 disabled:pointer-events-none">
+                    <Link to={"/new-report"} type="button" className=" py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-teal-500 text-white hover:bg-teal-600 focus:outline-none focus:bg-teal-600 disabled:opacity-50 disabled:pointer-events-none">
                         Report a Crisis
                     </Link>
 
