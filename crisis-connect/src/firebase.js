@@ -3,17 +3,15 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
-// Your web app's Firebase configuration (get this from your Firebase project settings)
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT_ID.appspot.com",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyDAmq-8Z4_yPq8vi-xutXC9QOykglFYT0Y",
+  authDomain: "redefine-buildathon.firebaseapp.com",
+  projectId: "redefine-buildathon",
+  storageBucket: "redefine-buildathon.appspot.com",
+  messagingSenderId: "82989261044",
+  appId: "1:82989261044:web:a99e4d0d723f7b0c8c7ea1"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);

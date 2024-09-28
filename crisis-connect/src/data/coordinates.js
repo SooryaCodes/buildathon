@@ -52,96 +52,102 @@ export const infectedCoordinates = [
 ]
 
 export const infectedZoneCoordinates = [
-    { coordinates: [77.1025, 28.6139] },  // New Delhi, India
-    { coordinates: [72.8777, 19.0760] },  // Mumbai, India
-    { coordinates: [88.3639, 22.5726] },  // Kolkata, India
-    { coordinates: [78.4867, 17.3850] },  // Hyderabad, India
-    { coordinates: [77.5946, 12.9716] },  // Bengaluru, India
-    { coordinates: [77.216721, 28.635308] },  // Noida, India
-    { coordinates: [72.8777, 19.2183] },  // Thane, India
-    { coordinates: [85.824, 20.2961] },  // Bhubaneswar, India
-    { coordinates: [77.6706, 13.0208] },  // Tirupati, India
-    { coordinates: [88.0242, 22.5726] },  // Howrah, India
-    { coordinates: [77.1025, 28.6139] },  // New Delhi, India
-    { coordinates: [72.8777, 19.0760] },  // Mumbai, India
-    { coordinates: [88.3639, 22.5726] },  // Kolkata, India
-    { coordinates: [78.4867, 17.3850] },  // Hyderabad, India
-    { coordinates: [77.5946, 12.9716] },  // Bengaluru, India
-    { coordinates: [77.216721, 28.635308] },  // Noida, India
-    { coordinates: [72.8777, 19.2183] },  // Thane, India
-    { coordinates: [85.8240, 20.2961] },  // Bhubaneswar, India
-    { coordinates: [77.6706, 13.0208] },  // Tirupati, India
-    { coordinates: [88.0242, 22.5726] },  // Howrah, India
-    { coordinates: [77.1855, 28.6147] },  // Gurgaon, India
-    { coordinates: [77.5630, 12.2958] },  // Mysuru, India
-    { coordinates: [78.6569, 17.9292] },  // Warangal, India
-    { coordinates: [80.2707, 13.0827] },  // Chennai, India
-    { coordinates: [76.9957, 11.0168] },  // Coimbatore, India
-    { coordinates: [73.7762, 15.5525] },  // Panaji, India
-    { coordinates: [73.7125, 22.3072] },  // Surat, India
-    { coordinates: [75.7139, 26.9124] },  // Jaipur, India
-    { coordinates: [76.6394, 30.7333] },  // Chandigarh, India
-    { coordinates: [80.9462, 26.8468] },  // Lucknow, India
-    { coordinates: [82.4400, 25.3176] },  // Varanasi, India
-    { coordinates: [70.4641, 26.1985] },  // Udaipur, India
-    { coordinates: [80.1785, 26.8468] },  // Raipur, India
-    { coordinates: [75.7924, 22.7196] },  // Indore, India
-    { coordinates: [73.8478, 17.3850] },  // Nashik, India
-    { coordinates: [78.5663, 17.9989] },  // Khammam, India
-    { coordinates: [80.2076, 22.7230] },  // Jabalpur, India
-    { coordinates: [80.6180, 27.4728] },  // Bhopal, India
-    { coordinates: [82.1409, 21.1458] },  // Raipur, India
-    { coordinates: [78.4734, 10.7905] },  // Kanyakumari, India
-    { coordinates: [79.8628, 29.4189] },  // Dehradun, India
-    { coordinates: [79.1972, 30.3165] },  // Shimla, India
-    { coordinates: [80.2054, 28.4424] },  // Firozabad, India
-    { coordinates: [73.0330, 29.7502] },  // Agra, India
-    { coordinates: [78.8805, 18.5204] },  // Mumbai, India
-    { coordinates: [78.9551, 18.6771] },  // Bhopal, India
-    { coordinates: [77.5369, 34.1553] },  // Leh, India
-    { coordinates: [93.7010, 26.2270] },  // Agartala, India
-    { coordinates: [90.4194, 23.7952] },  // Dhaka, Bangladesh
-    { coordinates: [88.6392, 24.1042] },  // Siliguri, India
-    { coordinates: [87.5435, 23.7978] },  // Ranchi, India
-    { coordinates: [79.3682, 27.5778] },  // Jhansi, India
-    { coordinates: [74.1035, 10.8474] },  // Port Blair, India
-    { coordinates: [74.3268, 29.8765] },  // Jaisalmer, India
-    { coordinates: [92.9294, 26.3027] },  // Imphal, India
-    { coordinates: [82.2922, 23.1577] },  // Bhilai, India
-    { coordinates: [76.2119, 19.8260] },  // Aurangabad, India
-    { coordinates: [75.9999, 20.1688] },  // Akola, India
-    { coordinates: [80.9714, 21.0887] },  // Bilaspur, India
-    { coordinates: [78.0421, 17.3566] },  // Nellore, India
-    { coordinates: [78.6580, 30.3174] },  // Haldwani, India
-    { coordinates: [81.5469, 21.1077] },  // Raigarh, India
-    { coordinates: [88.3575, 25.6500] },  // Bongaon, India
-    { coordinates: [85.8315, 24.7748] },  // Dhanbad, India
-    { coordinates: [76.1805, 9.9826] },  // Thiruvananthapuram, India
-    { coordinates: [82.7496, 28.3352] },  // Gorakhpur, India
-    { coordinates: [88.7118, 24.2702] },  // North Dumdum, India
-    { coordinates: [76.4747, 8.5944] },  // Kochi, India
-    { coordinates: [73.0230, 18.9297] },  // Nashik, India
-    { coordinates: [87.9019, 22.5939] },  // Burdwan, India
-    { coordinates: [76.5756, 17.6803] },  // Nizamabad, India
-    { coordinates: [83.0273, 25.4654] },  // Jagdalpur, India
-    { coordinates: [79.3178, 20.3487] },  // Chandrapur, India
-    { coordinates: [87.4791, 22.9085] },  // Malda, India
-    { coordinates: [88.2284, 23.2103] },  // Alipurduar, India
-    { coordinates: [80.8231, 20.1402] },  // Cuttack, India
-    { coordinates: [88.6393, 24.1344] },  // Silchar, India
-    { coordinates: [87.8586, 22.5130] },  // Bhopal, India
-    { coordinates: [72.9350, 19.1974] },  // Vasai-Virar, India
-    { coordinates: [80.1207, 28.6170] },  // Bareilly, India
-    { coordinates: [77.3243, 12.9714] },  // Mangaluru, India
-    { coordinates: [88.3680, 22.7347] },  // Durgapur, India
-    { coordinates: [75.7373, 21.0846] },  // Nagpur, India
-    { coordinates: [81.8778, 22.5368] },  // Bilaspur, India
-    { coordinates: [83.3041, 25.1001] },  // Korba, India
-    { coordinates: [79.0237, 28.5755] },  // Aligarh, India
-    { coordinates: [87.0631, 22.2563] },  // Asansol, India
-    { coordinates: [74.9071, 31.6200] },  // Amritsar, India
-    { coordinates: [93.0998, 26.8326] },  // Agartala, India
-    { coordinates: [74.5630, 30.8982] },  // Mandi, India
-    { coordinates: [82.0190, 24.5102] },  // Ambikapur, India
-    { coordinates: [76.2653, 9.6482] },  // Kottayam, India
-];
+    // North America (USA, Canada)
+    { coordinates: [-74.0060, 40.7128] },  // New York City, USA
+    { coordinates: [-73.9352, 40.7306] },  // Brooklyn, USA
+    { coordinates: [-74.0450, 40.7282] },  // Jersey City, USA
+    { coordinates: [-73.7949, 40.7282] },  // Queens, USA
+    { coordinates: [-73.9712, 40.7831] },  // Manhattan, USA
+    { coordinates: [-73.8500, 40.8499] },  // The Bronx, USA
+    { coordinates: [-73.9626, 40.8075] },  // Harlem, USA
+    { coordinates: [-79.3832, 43.6510] },  // Toronto, Canada
+    { coordinates: [-79.8975, 43.2557] },  // Hamilton, Canada
+    { coordinates: [-79.6221, 43.7176] },  // Mississauga, Canada
+
+    // More from the USA and Canada
+    { coordinates: [-122.4194, 37.7749] }, // San Francisco, USA
+    { coordinates: [-122.2711, 37.8044] }, // Oakland, USA
+    { coordinates: [-122.0838, 37.3861] }, // Mountain View, USA
+    { coordinates: [-118.2437, 34.0522] }, // Los Angeles, USA
+    { coordinates: [-118.3287, 34.0928] }, // Hollywood, USA
+    { coordinates: [-123.1216, 49.2827] }, // Vancouver, Canada
+    { coordinates: [-123.1207, 49.2500] }, // Burnaby, Canada
+    { coordinates: [-87.6298, 41.8781] },  // Chicago, USA
+    { coordinates: [-87.6536, 41.8500] },  // Cicero, USA
+    { coordinates: [-87.6847, 41.8376] },  // Oak Park, USA
+    { coordinates: [-80.1918, 25.7617] },  // Miami, USA
+    { coordinates: [-80.2264, 25.7905] },  // Little Havana, USA
+    { coordinates: [-80.3090, 25.7827] },  // Doral, USA
+
+    // Europe (Germany, France, UK)
+    { coordinates: [2.3522, 48.8566] },    // Paris, France
+    { coordinates: [2.2876, 48.8589] },    // La Défense, France
+    { coordinates: [2.4167, 48.8333] },    // Montreuil, France
+    { coordinates: [2.3319, 48.8566] },    // Champs-Élysées, France
+    { coordinates: [13.4050, 52.5200] },   // Berlin, Germany
+    { coordinates: [13.4290, 52.5196] },   // Kreuzberg, Germany
+    { coordinates: [13.3818, 52.5238] },   // Mitte, Germany
+    { coordinates: [-0.1276, 51.5074] },   // London, UK
+    { coordinates: [-0.1394, 51.5096] },   // Soho, UK
+    { coordinates: [-0.1425, 51.5007] },   // Westminster, UK
+    { coordinates: [-3.7038, 40.4168] },   // Madrid, Spain
+    { coordinates: [-3.6879, 40.4525] },   // Chamartin, Spain
+    { coordinates: [2.1734, 41.3851] },    // Barcelona, Spain
+    { coordinates: [4.8357, 45.7640] },    // Lyon, France
+    { coordinates: [12.4964, 41.9028] },   // Rome, Italy
+    { coordinates: [10.4017, 43.7228] },   // Pisa, Italy
+    { coordinates: [14.2681, 40.8518] },   // Naples, Italy
+    { coordinates: [11.2558, 43.7696] },   // Florence, Italy
+
+    // Additional European cities
+    { coordinates: [24.7536, 59.4370] },   // Tallinn, Estonia
+    { coordinates: [25.2799, 54.6872] },   // Vilnius, Lithuania
+    { coordinates: [26.1025, 44.4268] },   // Bucharest, Romania
+    { coordinates: [23.3219, 42.6977] },   // Sofia, Bulgaria
+    { coordinates: [30.5234, 50.4501] },   // Kyiv, Ukraine
+    { coordinates: [37.6173, 55.7558] },   // Moscow, Russia
+    { coordinates: [30.3351, 59.9343] },   // Saint Petersburg, Russia
+
+    // Asia (China, Japan, South Korea)
+    { coordinates: [116.4074, 39.9042] },  // Beijing, China
+    { coordinates: [116.4551, 39.9209] },  // Chaoyang, China
+    { coordinates: [116.3667, 39.9339] },  // Haidian, China
+    { coordinates: [139.6917, 35.6895] },  // Tokyo, Japan
+    { coordinates: [139.7323, 35.6852] },  // Shibuya, Japan
+    { coordinates: [139.8395, 35.6528] },  // Minato, Japan
+    { coordinates: [126.9780, 37.5665] },  // Seoul, South Korea
+    { coordinates: [127.0109, 37.5544] },  // Yongsan, South Korea
+    { coordinates: [126.9925, 37.5610] },  // Gangnam, South Korea
+    { coordinates: [127.0286, 37.5661] },  // Jongno, South Korea
+
+    // Additional Asian regions
+    { coordinates: [103.8198, 1.3521] },   // Singapore
+    { coordinates: [101.6869, 3.1390] },   // Kuala Lumpur, Malaysia
+    { coordinates: [106.8456, -6.2088] },  // Jakarta, Indonesia
+    { coordinates: [100.5018, 13.7563] },  // Bangkok, Thailand
+    { coordinates: [120.9842, 14.5995] },  // Manila, Philippines
+    { coordinates: [121.5654, 25.0330] },  // Taipei, Taiwan
+    { coordinates: [114.1694, 22.3193] },  // Hong Kong
+    { coordinates: [144.9631, -37.8136] }, // Melbourne, Australia
+    { coordinates: [151.2093, -33.8688] }, // Sydney, Australia
+    { coordinates: [174.7633, -36.8485] }, // Auckland, New Zealand
+    { coordinates: [153.0260, -27.4705] }, // Brisbane, Australia
+    { coordinates: [115.8589, -31.9505] }, // Perth, Australia
+
+    // Middle East (UAE, Saudi Arabia, Israel)
+    { coordinates: [55.2708, 25.2048] },   // Dubai, UAE
+    { coordinates: [54.3773, 24.4539] },   // Abu Dhabi, UAE
+    { coordinates: [46.6753, 24.7136] },   // Riyadh, Saudi Arabia
+    { coordinates: [39.2822, 21.4225] },   // Mecca, Saudi Arabia
+    { coordinates: [35.2137, 31.7683] },   // Jerusalem, Israel
+    { coordinates: [34.7818, 32.0853] },   // Tel Aviv, Israel
+    { coordinates: [51.3890, 35.6892] },   // Tehran, Iran
+
+    // South America (Brazil, Argentina, Chile)
+    { coordinates: [-46.6333, -23.5505] }, // São Paulo, Brazil
+    { coordinates: [-43.1729, -22.9068] }, // Rio de Janeiro, Brazil
+    { coordinates: [-58.3816, -34.6037] }, // Buenos Aires, Argentina
+    { coordinates: [-70.6483, -33.4489] }, // Santiago, Chile
+    { coordinates: [-76.9282, -12.0464] }, // Lima, Peru
+]
+

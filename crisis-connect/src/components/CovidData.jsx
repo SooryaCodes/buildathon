@@ -38,40 +38,10 @@ const CovidData = () => {
         fetchCovidData();
     }, []);
 
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>{error}</p>;
 
     return (
         <div>
-            <h1>COVID-19 Data by Country</h1>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Country</th>
-                        <th>Confirmed</th>
-                        <th>Deaths</th>
-                        <th>Recovered</th>
-                        <th>Vaccinated</th>
-                        <th>Death Rate</th>
-                        <th>Infected Rate</th>
-                        <th>Recovery Rate</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {countryData.map((country, index) => (
-                        <tr key={index}>
-                            <td>{country.country}</td>
-                            <td>{country.confirmed}</td>
-                            <td>{country.deaths}</td>
-                            <td>{country.recovered}</td>
-                            <td>{country.vaccinated}</td>
-                            <td>{country.deathRate}</td>
-                            <td>{country.infectedRate}</td>
-                            <td>{country.recoveryRate}</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
+          
         </div>
     );
 };

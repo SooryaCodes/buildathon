@@ -1,11 +1,21 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import MapboxMap from '../components/Map';
 import CountryList from '../components/CountryList';
 import CountryChart from '../components/CountryChart';
 
 export default function CrisisDashboard() {
+    const [covidData, setCovidData] = useState({})
+    const fetchData = async () => {
+        const response = await fetch('https://disease.sh/v3/covid-19/all');
+        const data = await response.json();
+        console.log(data);
+        setCovidData(covidData)
+    }
     useEffect(() => {
+
+        fetchData()
+
         const buildChart = (selector, options, lightTheme, darkTheme) => {
             const chart = new ApexCharts(document.querySelector(selector), {
                 ...options(),
@@ -117,7 +127,7 @@ export default function CrisisDashboard() {
                 yaxis: { labels: { style: { colors: 'red' } } },
                 grid: { borderColor: 'red' }
             }
-            
+
         );
     }, []);
 
@@ -130,7 +140,7 @@ export default function CrisisDashboard() {
                 <div className='w-full mt-4 grid h-full  gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-11'>
                     <div className='col-span-3 bg-white px-4 py-8 rounded-xl'>
                         <div className='flex items-center gap-2 justify-left'>
-                            <h4 className='font-semibold text-4xl'>254,489</h4>
+                            <h4 className='font-semibold text-4xl'>234,352,23</h4>
                             <span className='text-red-600 text-base  font-semibold'><h5>+15,345</h5><h6 className='text-xs'>increases on previous 28 days.</h6></span>
 
                         </div>
@@ -149,7 +159,7 @@ export default function CrisisDashboard() {
                                 <div className='flex justify-between'>
                                     <span id="hs-soft-color-danger-label" className="font-bold text-xl ">
                                         Death Rate
-                                    </span> <span className='text-xl font-semibold'>234,582</span>
+                                    </span> <span className='text-xl font-semibold'>245,678</span>
                                 </div>
                                 Across the globe as of 02-10-2024
                             </div>
@@ -162,7 +172,7 @@ export default function CrisisDashboard() {
                                 <div className='flex justify-between'>
                                     <span id="hs-soft-color-danger-label" className="font-bold text-xl ">
                                         Infected Rate
-                                    </span> <span className='text-xl font-semibold'>234,582</span>
+                                    </span> <span className='text-xl font-semibold'>323,343,32</span>
                                 </div>
                                 Across the globe as of 02-10-2024
                             </div>
@@ -175,7 +185,7 @@ export default function CrisisDashboard() {
                                 <div className='flex justify-between'>
                                     <span id="hs-soft-color-danger-label" className="font-bold text-xl ">
                                         Vaccinated Rate
-                                    </span> <span className='text-xl font-semibold'>234,582</span>
+                                    </span> <span className='text-xl font-semibold'>399,567</span>
                                 </div>
                                 Across the globe as of 02-10-2024
                             </div>
@@ -218,8 +228,8 @@ export default function CrisisDashboard() {
                     </div>
                     <MapboxMap />
                     <div className='col-span-3 bg-white p-2 rounded-xl'>
-                        <CountryList/>
-                        <CountryChart/>
+                        <CountryList />
+                        <CountryChart />
                     </div>
                 </div>
             </div>

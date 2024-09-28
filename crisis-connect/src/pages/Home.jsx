@@ -1,5 +1,6 @@
 import React from 'react'
 import CrisisCard from '../components/CrisisCard'
+import { Link } from 'react-router-dom'
 
 export default function Home() {
     return (
@@ -17,6 +18,13 @@ export default function Home() {
                     <CrisisCard />
                 </div>
             </div>
+        
+<Link to="https://buymeacoffee.com/sooryakriz"
+                        type="button"
+                        className="h-12 fixed right-10 bottom-10 py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-teal-500 text-teal-500 hover:border-teal-400 hover:text-teal-400 focus:outline-none focus:border-teal-400 focus:text-teal-400 disabled:opacity-50 disabled:pointer-events-none"
+                    >
+                       <i class="ri-money-dollar-circle-line"></i> Donate
+                    </Link>
         </div>
     )
 }

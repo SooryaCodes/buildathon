@@ -39,30 +39,11 @@ const CovidDeathRate = () => {
         fetchCovidData();
     }, []);
 
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>{error}</p>;
 
     return (
         <div>
             <h1>COVID-19 Death Rates by Country (Latest Date)</h1>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Country</th>
-                        <th>Location</th>
-                        <th>Death Rate</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {covidData.map((data, index) => (
-                        <tr key={index}>
-                            <td>{data.country}</td>
-                            <td>{data.location}</td>
-                            <td>{data.deathRate}</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
+           
         </div>
     );
 };
