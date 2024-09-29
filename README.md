@@ -10,7 +10,7 @@ Tell us about your project here
 [4.VISMAYA N V]()
 
 ## Link to Project
-[Embed the live link of project](crisisconnect.netlify.app)
+[Embed the live link of project](https://crisisconnect.netlify.app)
 
 ## How it Works ?
 Overview
@@ -28,7 +28,7 @@ User-Friendly Interface: Easy-to-use platform for both contributors and general 
 - REACT JS
 - FIREBASE
 - MAPBOX
--TAILWINDCSS
+- TAILWINDCSS
 
 ## Other Links
 [Presentation](https://www.canva.com/design/DAGR9Fjj81Y/kjQNWKu3Rh-K0Bp_9x4GXA/edit)
